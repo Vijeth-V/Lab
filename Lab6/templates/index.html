@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<head>
+    <title>Password Validator</title>
+    <script>
+        function onSubmitForm() {
+            var name = document.getElementById("name").value;
+            var pwd = document.getElementById("pwd").value;
+            console.log("Name - ",name);
+            console.log("Password - ",pwd);
+
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d$)(^.{8,}$)/;
+            if (passwordRegex.test(pwd)) {
+            console.log("Valid password");
+            // window.location.href = "/report";
+            window.location.href = "/report?status=success";
+            } else {
+            console.log("Invalid password");
+            window.location.href = "/report?status=failure";
+            
+            }
+        }
+    </script>
+        <style>
+            .card {
+                max-width: 800px;
+                margin: 0 auto;
+                background-color: #e0dddd;
+            }
+    
+            .card-header {
+                background-color: rgb(240, 240, 240); 
+                padding: 10px;
+            }
+    
+            .card-content {
+                font-size: 16px;
+                padding: 20px;
+            }
+        </style>
+</head>
+<body>
+    <div class="card">
+        <div class="card-header">
+            <h2>Home Page</h2>
+        </div>
+        <div class="card-content">
+            <p>Welcome to Password Validator</p>
+            <p>Let's see if your Password is secure!</p>
+            <p>Fill out the form below with a User Name and password that has these restraints</p>
+            <ul>
+                <li>Must have an upper case letter somewhere.</li>
+                <li>Must have a lower case letter somewhere.</li>
+                <li>Must have a number at the end.</li>
+            </ul>
+            <form onsubmit="onSubmitForm(); return false;">
+                <label for="name">User Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                
+
+                <label for="pwd">Password:</label>
+                <input type="pwd" id="pwd" name="pwd" required>
+
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+{% endblock %}

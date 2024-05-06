@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <head>
+        <style>
+            .card {
+                max-width: 800px;
+                margin: 0 auto;
+                background-color: #e0dddd;
+            }
+    
+            .card-header {
+                background-color: rgb(240, 240, 240); 
+                padding: 10px;
+            }
+    
+            .card-content {
+                font-size: 16px;
+                padding: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="card">
+            <div class="card-header">
+                <h2>Home Page</h2>
+            </div>
+            <div class="card-content">
+                <p>Let see if your password meets the requirements...</p>
+                <div id="content">
+                </div>
+            </div>
+        </div>
+        
+
+        <script> 
+            const test = true;
+            const urlParams = new URLSearchParams(window.location.search);
+            const statusValue = urlParams.get('status');
+            console.log("statusValue-",statusValue)
+            const contentDiv = document.getElementById('content');
+            if (statusValue === 'success') {
+                console.log("suceess")
+                contentDiv.innerHTML = '<p>Your password Passed all the 3 requirements</p>';
+            } else {
+                console.log("Failure")
+                contentDiv.innerHTML = '<p>Oh no! Looks like you had issues with your password!</p><p>Here are the requirements you failed:</p><ul><li>You did not use an uppercase character.</li><li>You did not end your password with a number.</li></ul>';
+            }
+        </script>
+    </body>
+</html>
+{% endblock %}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Scientific Calculator</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <!-- Library citation https://cdnjs.com/libraries/mathjs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.2/math.min.js"></script>
+    <script src="calculate.js" type="text/javascript"></script>
+    <h1 style="text-align: center;">Scientific Calculator</h1>
+        <table>
+            <tr>
+                <td colspan="4">
+                    <input type="text" id="display" placeholder="0"></td>
+                    <td>
+                </td>
+            </tr>
+            <tr>
+                <td><button value="1" onclick="disp(value)">1</button></td>
+                <td><button value="2" onclick="disp(value)">2</button></td>
+                <td><button value="3" onclick="disp(value)">3</button></td>
+                <td><button value="/" onclick="disp(value)">/</button></td>
+            </tr>
+            <tr>
+                <td><button value="4" onclick="disp(value)">4</button></td>
+                <td><button value="5" onclick="disp(value)">5</button></td>
+                <td><button value="6" onclick="disp(value)">6</button></td>
+                <td><button value="*" onclick="disp(value)">*</button></td>
+            </tr>
+            <tr>
+                <td><button value="7" onclick="disp(value)">7</button></td>
+                <td><button value="8" onclick="disp(value)">8</button></td>
+                <td><button value="9" onclick="disp(value)">9</button></td>
+                <td><button value="-" onclick="disp(value)">-</button></td>
+            </tr>
+            <tr>
+                <td><button value="." onclick="disp(value)">.</button></td>
+                <td><button value="0" onclick="disp(value)">0</button></td>
+                <td><button value="pow(" onclick="disp(value)">pow</button></td>
+                <td><button value="+" onclick="disp(value)">+</button></td>
+            </tr>
+            <tr>
+                <td><button value="sqrt(" onclick="disp(value)">sqrt</button></td>
+                <td><button value="tan(" onclick="disp(value)">tan</button></td>
+                <td><button value="sin(" onclick="disp(value)">sin</button></td>
+                <td><button value="cos(" onclick="disp(value)">cos</button></td>
+            </tr>
+            <tr>
+                <td><button value=")" onclick="disp(value)">)</button></td>
+                <td><button value="AC" onclick="clearDisplay()">AC</button></td>
+                <td colspan="2"><button class="equal" value="=" onclick="result()">=</button></td>
+            </tr>
+        </table>
+</body>
+
+</html>
